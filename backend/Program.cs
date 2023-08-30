@@ -1,5 +1,6 @@
 ﻿using backend.Data;
 using Microsoft.EntityFrameworkCore;
+using backend.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +21,8 @@ builder.Services.AddSwaggerGen();
 //    build.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
 //}));
 
-//builder.Services.AddAutoMapper(typeof(Program).Assembly); // Register Auto Mapper
-//builder.Services.AddScoped<ICharacterService, CharacterService>(); // Evrry time we use the interface ICharacterService it will use an instance of CharacterService class
+builder.Services.AddAutoMapper(typeof(Program).Assembly); // Register Auto Mapper
+builder.Services.AddScoped<IUserService, UserService>(); // Evrry time we use the interface IUserService it will use an instance of UserService class
 
 var app = builder.Build();
 

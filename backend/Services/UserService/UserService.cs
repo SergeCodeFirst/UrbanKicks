@@ -6,6 +6,8 @@ using backend.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.JsonPatch;
+
 
 namespace backend.Services.UserService
 {
@@ -53,17 +55,15 @@ namespace backend.Services.UserService
         // ADD USER
         public async Task<ServiceResponse<AddUserDto>> AddUser([FromBody] AddUserDto newUser)
 		{
-			// Transform from AddUserDto to User class With Automapper
+            // New service Response class to send the created User Data
+            var NewServiceResponse = new ServiceResponse<AddUserDto>();
+
+            // Transform from AddUserDto to User class With Automapper
 			var userToAdd = _mapper.Map<User>(newUser);
 
             // Send the new User class to the database
             _context.Users.Add(userToAdd);
-
-            // Save changes Asynchronously
             await _context.SaveChangesAsync();
-
-			// New service Response class to send the created User Data
-            var NewServiceResponse = new ServiceResponse<AddUserDto>();
 
             NewServiceResponse.Data = newUser;
             NewServiceResponse.Success = true;
@@ -71,6 +71,74 @@ namespace backend.Services.UserService
 
 			return NewServiceResponse;
 		}
+
+        // UPDATE USER
+        public async Task<ServiceResponse<UpdateUserDto>> UpdateUserPartial(int UserId, [FromBody] JsonPatchDocument<UpdateUserDto> patchDocument)
+        {
+            //Crerate a new servise response
+            var NewServiceResponse = new ServiceResponse<UpdateUserDto>();
+
+            //Check if the user info is valid
+            if (patchDocument == null || UserId <= 0)
+            {
+                NewServiceResponse.Success = false;
+                NewServiceResponse.Message = "Bad Request!";
+
+                return NewServiceResponse;
+            }
+
+            // get the user in db
+            var UserDb = await _context.Users.FirstOrDefaultAsync(u => u.UserId == UserId);
+
+            //Check if user in db is null
+            if (UserDb == null)
+            {
+                NewServiceResponse.Success = false;
+                NewServiceResponse.Message = "User Not found";
+
+                return NewServiceResponse;
+            }
+
+            var NewUserDto = new UpdateUserDto
+            {
+                UserId = UserDb.UserId,
+                First_name = UserDb.First_name,
+                Last_name = UserDb.Last_name,
+                Email = UserDb.Email,
+                Street_address = UserDb.Street_address,
+                State = UserDb.State,
+                City = UserDb.City,
+                Zipcode = UserDb.Zipcode
+            };
+
+            // Apply client changes to my NewUserDto Instance 
+            patchDocument.ApplyTo(NewUserDto);
+
+            //patchDocument.ApplyTo(NewUserDto, ModelState);
+            //if (!ModelState.IsValid)
+            //{
+            //    NewServiceResponse.Success = false;
+            //    NewServiceResponse.Message = "Validation Error";
+            //    return NewServiceResponse;
+            //}
+
+            //Update the User in DB info with my NewUserDto info
+            UserDb.First_name = NewUserDto.First_name;
+            UserDb.Last_name = NewUserDto.Last_name;
+            UserDb.Email = NewUserDto.Email;
+            UserDb.Street_address = NewUserDto.Street_address;
+            UserDb.State = NewUserDto.State;
+            UserDb.City = NewUserDto.City;
+            UserDb.Zipcode = NewUserDto.Zipcode;
+
+            await _context.SaveChangesAsync();
+
+            NewServiceResponse.Data = NewUserDto;
+            NewServiceResponse.Success = true;
+            NewServiceResponse.Message = "User updated Successfully!";
+
+            return NewServiceResponse;
+        }
 
         //DELETE USER
         public async Task<ServiceResponse<GetUserDto>> DeleteUser(int UserId)

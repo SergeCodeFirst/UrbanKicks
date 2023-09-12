@@ -91,7 +91,7 @@ img{
 }
 
 
-/*===== CLASS CSS =====*/
+/* ============ CLASS CSS ============ */
 .section-title{
   position: relative;
   font-size: var(--bigger-font-size);
@@ -113,7 +113,6 @@ img{
   background-color: var(--dark-color);
 }
 
-/*===== LAYOUT =====*/
 .bd-grid{
   max-width: 1024px;
   display: grid;
@@ -124,12 +123,43 @@ img{
   margin-right: var(--mb-2);
 }
 
-.l-header{
-  width: 100%;
-  background-color: var(--dark-color-lighten);
-  /* position: sticky; */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: var(--z-fixed);
+/* --- BUTTONS --- */
+.button{
+  display: inline-block;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 1.125rem 2rem;
+  font-weight: var(--font-medium);
+  border-radius: .5rem;
+  transition: .3s;
+}
+
+.button:hover{
+  text-decoration: none;
+  color: var(--white-color);
+  transform: translateY(-.25rem);
+}
+
+.button-light{
+  display: inline-flex;
+  color: var(--dark-color);
+  font-weight: var(--font-bold);
+  align-items: center;
+}
+
+.button-icon{
+  font-size: 1.25rem;
+  margin-left: var(--mb-1);
+  transition: .3s;
+}
+
+.button-light:hover {
+  transform: translateX(.25rem);
+  text-decoration: none;
+  color: var(--dark-color);
+  transform: translateY(-.25rem);
+}
+
+.button-icon{
+  transform: translateX(.25rem);
 }

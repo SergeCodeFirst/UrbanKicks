@@ -77,13 +77,6 @@ ul{
   list-style: none;
 }
 
-
-.nav__item a
-{
-  text-decoration: none !important; 
-  color: var(--dark-color) !important;
-}
-
 img{
   max-width: 100%;
   height: auto;

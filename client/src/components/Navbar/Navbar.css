@@ -38,6 +38,12 @@
     margin-bottom: var(--mb-4);
 }
 
+.nav__item a
+{
+    text-decoration: none ; 
+    color: var(--dark-color) ;
+}
+
 .nav__logo {
     font-weight: var(--font-semi-bold);
 }

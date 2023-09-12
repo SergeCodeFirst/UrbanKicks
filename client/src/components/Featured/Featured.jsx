@@ -8,32 +8,32 @@ import './Featured.css'
 
 const Featured = (props) => {
     return (
-        <section class="featured section" id="featured">
-            <h2 class="section-title">FEATURED</h2>
+        <section className="featured section" id="featured">
+            <h2 className="section-title">FEATURED</h2>
 
-            <div class="featured__container bd-grid">
-                <article class="sneaker">
-                    <div class="sneaker__sale">Sale</div>
+            <div className="featured__container bd-grid">
+                <article className="sneaker">
+                    <div className="sneaker__sale">Sale</div>
                         <img src={featured1} alt="sneaker" className="sneaker__img"/>
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__price">$143.99</span>
-                        <a href="" class="button-light" id='sneaker__sale_a'>Add to Card <i class="fa-solid fa-arrow-right button-icon"></i></a>
+                        <span className="sneaker__name">Nike Jordan</span>
+                        <span className="sneaker__price">$143.99</span>
+                        <a href="" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
-                <article class="sneaker">
-                    <div class="sneaker__sale">Sale</div>
+                <article className="sneaker">
+                    <div className="sneaker__sale">Sale</div>
                         <img src={featured2} alt="sneaker" className="sneaker__img"/>
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__price">$143.99</span>
-                        <a href="" class="button-light" id='sneaker__sale_a'>Add to Card <i class="fa-solid fa-arrow-right button-icon"></i></a>
+                        <span className="sneaker__name">Nike Jordan</span>
+                        <span className="sneaker__price">$143.99</span>
+                        <a href="" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
-                <article class="sneaker">
-                    <div class="sneaker__sale">Sale</div>
+                <article className="sneaker">
+                    <div className="sneaker__sale">Sale</div>
                         <img src={featured3} alt="sneaker" className="sneaker__img"/>
-                        <span class="sneaker__name">Nike Free RN</span>
-                        <span class="sneaker__price">$143.99</span>
-                        <a href="#" class="button-light" id='sneaker__sale_a'>Add to Card <i class="fa-solid fa-arrow-right button-icon"></i></a>
+                        <span className="sneaker__name">Nike Free RN</span>
+                        <span className="sneaker__price">$143.99</span>
+                        <a href="#" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
             </div>

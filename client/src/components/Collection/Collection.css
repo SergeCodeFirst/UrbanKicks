@@ -1,0 +1,43 @@
+/* ========= BASE =========  */
+.collection__data a {
+    text-decoration: none;
+}
+
+.collection__data a  i{
+    font-size: 1rem;
+}
+
+/* ========= COLLECTION =========  */
+.collection__container{
+    row-gap: 2rem;
+    justify-content: center;
+}
+
+.collection_card{
+    position: relative;
+    display: flex;
+    height: 328px;
+    background-color: var(--dark-color-lighten);
+    padding: 2rem;
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.collection__data{
+    align-self: flex-end;
+}
+
+.collection__img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 230px;
+}
+
+.collection__description{
+    margin-bottom: var(--mb-2)
+}
+
+.collection_card:hover{
+    transform: translateY(-.5rem);
+}

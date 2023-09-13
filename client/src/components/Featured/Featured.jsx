@@ -17,7 +17,7 @@ const Featured = (props) => {
                         <img src={featured1} alt="sneaker" className="sneaker__img"/>
                         <span className="sneaker__name">Nike Jordan</span>
                         <span className="sneaker__price">$143.99</span>
-                        <a href="" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
+                        <a href="/" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
                 <article className="sneaker">
@@ -25,7 +25,7 @@ const Featured = (props) => {
                         <img src={featured2} alt="sneaker" className="sneaker__img"/>
                         <span className="sneaker__name">Nike Jordan</span>
                         <span className="sneaker__price">$143.99</span>
-                        <a href="" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
+                        <a href="/" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
                 <article className="sneaker">
@@ -33,7 +33,7 @@ const Featured = (props) => {
                         <img src={featured3} alt="sneaker" className="sneaker__img"/>
                         <span className="sneaker__name">Nike Free RN</span>
                         <span className="sneaker__price">$143.99</span>
-                        <a href="#" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
+                        <a href="/" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article>
 
             </div>

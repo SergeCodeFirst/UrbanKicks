@@ -1,3 +1,4 @@
+import Collection from "../../components/Collection/Collection";
 import Featured from "../../components/Featured/Featured";
 import Header from "../../components/Header/Header";
 import "./Home.css"
@@ -7,6 +8,7 @@ const Home = (props) => {
         <main className="l-main">
             <Header />
             <Featured />
+            <Collection />
             
         </main>
     )

@@ -1,0 +1,11 @@
+/* ========= BASE ========= */
+#notunderline{
+    text-decoration: none;
+}
+
+/* ========= WOMEN ========= */
+
+.women__container{
+    row-gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}

@@ -1,6 +1,7 @@
 import Collection from "../../components/Collection/Collection";
 import Featured from "../../components/Featured/Featured";
 import Header from "../../components/Header/Header";
+import Women from "../../components/Women/Women";
 import "./Home.css"
 
 const Home = (props) => {
@@ -9,7 +10,7 @@ const Home = (props) => {
             <Header />
             <Featured />
             <Collection />
-            
+            <Women />
         </main>
     )
 }

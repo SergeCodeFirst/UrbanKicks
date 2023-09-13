@@ -5,25 +5,25 @@ import collection2 from  '../../assets/images/collection2.png';
 
 const Collection = (props) => {
     return(
-        <section class="collection section">
-        <h2 class="section-title">COLLECTION</h2>
-        <div class="collection__container bd-grid">
-            <div class="collection_card">
-                <div class="collection__data">
-                    <h3 class="collection__name">Nike</h3>
-                    <p class="collection__description">New collection 2020</p>
-                    <a href="/" class="button-light"> Buy now<i className="fa-solid fa-arrow-right button-icon"></i></a>
+        <section className="collection section">
+        <h2 className="section-title">COLLECTION</h2>
+        <div className="collection__container bd-grid">
+            <div className="collection_card">
+                <div className="collection__data">
+                    <h3 className="collection__name">Nike</h3>
+                    <p className="collection__description">New collection 2020</p>
+                    <a href="/" className="button-light"> Buy now<i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </div>
-                <img class="collection__img" src={collection1} alt="collection2" />
+                <img className="collection__img" src={collection1} alt="collection2" />
             </div>
 
-            <div class="collection_card">
-                <div class="collection__data">
-                    <h3 class="collection__name">Addidas</h3>
-                    <p class="collection__description">New collection 2020</p>
-                    <a href="/" class="button-light"> Buy now<i className="fa-solid fa-arrow-right button-icon"></i></a>
+            <div className="collection_card">
+                <div className="collection__data">
+                    <h3 className="collection__name">Addidas</h3>
+                    <p className="collection__description">New collection 2020</p>
+                    <a href="/" className="button-light"> Buy now<i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </div>
-                <img class="collection__img"  src={collection2} alt="collection2" />
+                <img className="collection__img"  src={collection2} alt="collection2" />
             </div>
         </div>
     </section>

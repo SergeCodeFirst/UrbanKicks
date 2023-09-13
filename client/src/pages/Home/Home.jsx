@@ -1,8 +1,10 @@
 import Collection from "../../components/Collection/Collection";
 import Featured from "../../components/Featured/Featured";
 import Header from "../../components/Header/Header";
+import Offer from "../../components/Offer/Offer";
 import Women from "../../components/Women/Women";
-import "./Home.css"
+
+import "./Home.css";
 
 const Home = (props) => {
     return(
@@ -11,6 +13,7 @@ const Home = (props) => {
             <Featured />
             <Collection />
             <Women />
+            <Offer />
         </main>
     )
 }

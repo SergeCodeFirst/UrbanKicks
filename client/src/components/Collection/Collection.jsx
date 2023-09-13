@@ -26,7 +26,6 @@ const Collection = (props) => {
                 <img class="collection__img"  src={collection2} alt="collection2" />
             </div>
         </div>
-        
     </section>
     )
 }

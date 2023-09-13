@@ -31,21 +31,21 @@ const Newcollection = (props) => {
             <div className="new__sneaker-card">
                 <img src={new3} alt="new3"  className="new__sneaker-img" />
                 <div className="new__sneaker-overlay">
-                    <a href="#" className="button">Add to Card</a>
+                    <a href="/" className="button">Add to Card</a>
                 </div>
             </div>
 
             <div className="new__sneaker-card">
                 <img src={new4} alt="new4"  className="new__sneaker-img" />
                 <div className="new__sneaker-overlay">
-                    <a href="#" className="button">Add to Card</a>
+                    <a href="/" className="button">Add to Card</a>
                 </div>
             </div>
 
             <div className="new__sneaker-card">
                 <img src={new5} alt="new5"  className="new__sneaker-img" />
                 <div className="new__sneaker-overlay">
-                    <a href="#" className="button">Add to Card</a>
+                    <a href="/" className="button">Add to Card</a>
                 </div>
             </div>
         </div>

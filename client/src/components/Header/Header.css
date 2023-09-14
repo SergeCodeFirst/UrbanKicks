@@ -68,3 +68,30 @@ h1, h2, h3, p, ul {
 .header__description{
     margin-bottom: var(--mb-6);
 }
+
+
+/* =============== RESPONSIVE =============== */
+@media screen and (min-width: 768px){
+    .header__container{
+        height: 100vh;
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header__sneaker{
+        order: 1;
+    }
+
+    .header__shape{
+        width: 376px;
+        height: 376px;
+    }
+
+    .header__img{
+        width: 470px;
+        top: 3.5rem;
+        right: 0;
+        left: -3rem;
+    }
+}

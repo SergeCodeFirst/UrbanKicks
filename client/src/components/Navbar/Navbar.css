@@ -70,3 +70,32 @@
     background-color: var(--dark-color);
     border-radius: 50%;
 }
+
+
+/* =============== RESPONSIVE =============== */
+@media screen and (min-width: 768px) {
+    .nav {
+            height: 3rem;
+        }
+    
+        .nav__menu {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        .nav__list {
+            height: 100%;
+            display: flex;
+            margin-bottom: 0;
+        }
+    
+        .nav__item {
+            margin-left: var(--mb-6);
+            margin-bottom: 0;
+        }
+    
+        .nav__toggle {
+            display: none;
+        }
+}

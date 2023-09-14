@@ -156,3 +156,24 @@ img{
 .button-icon{
   transform: translateX(.25rem);
 }
+
+
+/* ============= MEDIA QUERY ============= */
+
+@media screen and (min-width: 768px){
+  .App{
+    margin: 0;
+  }
+
+  .section{
+    padding: 4rem 0 3rem;
+  }
+
+  .section-title::after{
+    width: 76px;
+  }
+
+  /* -- Navbar change  */
+  /* -- Header change  */
+  
+}

@@ -1,0 +1,26 @@
+/* =============== BASE =============== */
+.sneaker a {
+    text-decoration: none;
+}
+
+.sneaker a i{
+    font-size: 1rem;
+}
+
+
+/* =============== SHOP =============== */
+.sneaker__pages{
+    margin-top: var(--mb-6);
+    margin-bottom: var(--mb-6);
+}
+
+.sneaker__pag{
+    padding: .5rem 1rem;
+    border: 1px solid var(--dark-color);
+    transition: .3s;
+}
+
+.sneaker__pag:hover{
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}

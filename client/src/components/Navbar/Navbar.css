@@ -44,6 +44,10 @@
     color: var(--dark-color) ;
 }
 
+#link{
+    cursor: pointer;
+}
+
 .nav__logo {
     font-weight: var(--font-semi-bold);
 }

@@ -159,21 +159,52 @@ img{
 
 
 /* ============= MEDIA QUERY ============= */
+/* @media screen and (min-width: 576px) {
+  -- Collection component changed 
+  -- Offer component changed 
+  -- Newcollection component changed 
+} */
+
+@media screen and (min-width: 768px) {
+  :root{
+    --big-font-size: 1.5rem;
+    --bigger-font-size: 2rem;
+    --biggest-font-size: 3rem;
+    --normal-font-size: 1em;
+    --smaller-font-size: .875rem;
+  }
+}
 
 @media screen and (min-width: 768px){
   .App{
     margin: 0;
   }
-
+  
   .section{
     padding: 4rem 0 3rem;
   }
-
+  
+  .section-title{
+    margin-top: 0;
+  }
+  
   .section-title::after{
     width: 76px;
   }
-
-  /* -- Navbar change  */
-  /* -- Header change  */
   
+  /* -- Navbar component change  */
+  /* -- Header component change  */
+  /* -- Newsletter component change  */
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+  .bd-grid{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* -- Header component changed  */
+  /* -- collection component changed  */
+  /* -- Newcollection component changed  */
 }

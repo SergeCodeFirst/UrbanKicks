@@ -33,3 +33,20 @@
 .offer__img{
     width: 153px;
 }
+
+/* ============= MEDIA QUERY ============= */
+
+@media screen and (min-width: 576px) {
+    .offer__container {
+        grid-template-columns: max-content max-content;
+    }
+
+    .offer__data {
+        text-align: center;
+    }
+
+    .offer__title {
+        font-size: 3rem;
+        font-weight: var(--font-bold);
+    }
+}

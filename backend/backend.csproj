@@ -20,6 +20,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.10" />
+    <PackageReference Include="Stripe.net" Version="43.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,8 @@
     <None Remove="Dtos\" />
     <None Remove="Dtos\User\" />
     <None Remove="Services\ResponseService\" />
+    <None Remove="Services\PaymentService\" />
+    <None Remove="Dtos\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -39,5 +42,7 @@
     <Folder Include="Dtos\" />
     <Folder Include="Dtos\User\" />
     <Folder Include="Services\ResponseService\" />
+    <Folder Include="Services\PaymentService\" />
+    <Folder Include="Dtos\Product\" />
   </ItemGroup>
 </Project>

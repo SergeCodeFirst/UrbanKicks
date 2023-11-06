@@ -7,6 +7,8 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop/Shop';
+import ErrorPayment from './pages/ErrorPayment/ErrorPayment';
+import SucessPayment from './pages/SucessPayment/SucessPayment';
 
 function App() {
   return (
@@ -21,6 +23,14 @@ function App() {
 
         <Route exact path="/shop">
           <Shop />
+        </Route>
+
+        <Route exact path="/success">
+          <SucessPayment />
+        </Route>
+
+        <Route exact path="/cancel">
+          <ErrorPayment />
         </Route>
       </Switch>
       {/* Footer */}

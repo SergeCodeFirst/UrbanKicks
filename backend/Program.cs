@@ -1,6 +1,7 @@
 ﻿using backend.Data;
 using Microsoft.EntityFrameworkCore;
 using backend.Services.UserService;
+using backend.Services.PaymentService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,14 +16,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //// Allow our web api to share data with the frontend: Configuring CORS (Cross-Origin Resource Sharing)
-//builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
-//{
-//    //build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-//    build.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
-//}));
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    //build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    build.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+}));
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly); // Register Auto Mapper
 builder.Services.AddScoped<IUserService, UserService>(); // Evrry time we use the interface IUserService it will use an instance of UserService class
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 
 var app = builder.Build();
 

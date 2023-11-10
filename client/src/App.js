@@ -14,27 +14,27 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {/* Navbar */}
+      <shoppingCartContext>
         <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route exact path="/shop">
-          <Shop />
-        </Route>
+          <Route exact path="/shop">
+            <Shop />
+          </Route>
 
-        <Route exact path="/success">
-          <SucessPayment />
-        </Route>
+          <Route exact path="/success">
+            <SucessPayment />
+          </Route>
 
-        <Route exact path="/cancel">
-          <ErrorPayment />
-        </Route>
-      </Switch>
-      {/* Footer */}
+          <Route exact path="/cancel">
+            <ErrorPayment />
+          </Route>
+        </Switch>
         <Footer />
+      </shoppingCartContext>
       </BrowserRouter>
     </div>
   );

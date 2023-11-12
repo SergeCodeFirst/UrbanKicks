@@ -10,11 +10,13 @@ import Shop from './pages/Shop/Shop';
 import ErrorPayment from './pages/ErrorPayment/ErrorPayment';
 import SucessPayment from './pages/SucessPayment/SucessPayment';
 
+import { ShoppingCartProvider } from './context/shoppingCartContext';
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <shoppingCartContext>
+      <ShoppingCartProvider>
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -34,7 +36,7 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-      </shoppingCartContext>
+      </ShoppingCartProvider>
       </BrowserRouter>
     </div>
   );

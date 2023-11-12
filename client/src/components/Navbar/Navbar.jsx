@@ -5,6 +5,8 @@ import './Navbar.css'
 // import featured3 from '../../assets/images/featured3.png'
 import { ProductInCard } from '../../stores/TempData';
 import { formatCurenccy } from '../../utils/formatCurrency'
+// Cusom Hooks
+import { useShoppingCard } from '../../context/shoppingCartContext';
 
 const Navbar = (props) => {
     const [navOpen, setNavOpen] = useState(false)
@@ -20,7 +22,8 @@ const Navbar = (props) => {
         setShopCardOpen(!shopCardOpen)
     }
 
-    const quantity = 2;
+    const { getCartItems, cartQuantity, getCartItemsTotalPrice, getItemQuantity, incrementCardQuantity, decrementCardQuantity, removeFromCard } = useShoppingCard();
+    const CartItems = getCartItems()
     return (
         <header className='l-header' id="header">
             <nav className="nav bd-grid">
@@ -42,11 +45,11 @@ const Navbar = (props) => {
                 <div className="nav__shop">
                     <span className='card_icon_group'>
                         <i className="fa-solid fa-bag-shopping" onClick={toogleShopCard}></i>
-                        <span className='card_item_number'>{ProductInCard.length}</span>
+                        <span className='card_item_number'>{ cartQuantity }</span>
                     </span>
                     <div className={shopCardOpen ? "card__menu show_card" : "card__menu"}>
                         {
-                            ProductInCard.length === 0 ?
+                            cartQuantity === 0 ?
                                 <div className="sad_card">
                                     <i className="fa-regular fa-face-sad-tear"></i>
                                     <p>Your card is empty</p>
@@ -54,27 +57,28 @@ const Navbar = (props) => {
                                 :
                                 <div className="card__item_wrapper">
                                     {
-                                        ProductInCard.map((product) => (
+                                        CartItems.map((product) => (
                                             <article key={product.id} className='card__item_article'>
                                                 <div className="card__item_img">
                                                     <img src={product.image} alt="featured3" className='items__img' />
                                                 </div>
                                                 <div className="card__item__info">
-                                                    <p className='card__item__title'> { product.name} ...<br /> <span className='card__item__price'> { formatCurenccy(product.price) }</span> </p>
+                                                    <p className='card__item__title'> { product.name } ...<br /> <span className='card__item__price'> { formatCurenccy((product.price * getItemQuantity(product.id))) }</span> </p>
                                                     <div className="item__counter">
-                                                        { quantity === 1 ?
-                                                        <i className="fa-solid fa-trash small_font" ></i>
+                                                        { getItemQuantity(product.id) === 1 ?
+                                                        <i className="fa-solid fa-trash small_font" onClick={() => removeFromCard(product.id)}></i>
                                                         :
-                                                        <i className="fa-solid fa-minus small_font" ></i>
+                                                        <i className="fa-solid fa-minus small_font" onClick={() => decrementCardQuantity(product.id)} ></i>
                                                         }
-                                                        <span className='small_font'>{quantity}</span>
-                                                        <i className="fa-solid fa-plus small_font" ></i>
+                                                        <span className='small_font'>{ getItemQuantity(product.id) }</span>
+                                                        <i className="fa-solid fa-plus small_font" onClick={() => incrementCardQuantity(product.id) } ></i>
                                                     </div>
                                                 </div>
                                             </article>
                                         ))
                                     }
 
+                                    <h4 style={{ textAlign:"end"}}><b>{  formatCurenccy(getCartItemsTotalPrice)}</b></h4>
                                     <button>Checkout</button>
                                 </div>
                         }

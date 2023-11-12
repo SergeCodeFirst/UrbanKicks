@@ -3,6 +3,7 @@ import React from 'react';
 
 import axios from 'axios';
 import { Products, Items } from '../../stores/TempData';
+import { useShoppingCard } from '../../context/shoppingCartContext';
 
 
 
@@ -18,6 +19,8 @@ const Featured = (props) => {
                 console.log({errors: err});
             })
     }
+
+    const { incrementCardQuantity, addToCart } = useShoppingCard();
     return (
         <section className="featured section" id="featured">
             <h2 className="section-title">FEATURED</h2>
@@ -47,14 +50,14 @@ const Featured = (props) => {
                         <a href="/" className="button-light" id='sneaker__sale_a'>Add to Card <i className="fa-solid fa-arrow-right button-icon"></i></a>
                 </article> */}
                 {
-                    Products.map((product, i) => 
+                    Products.map((product) => 
                     (
-                        <article key={i} className="sneaker">
-                            <div className="sneaker__sale">Sale {i}</div>
-                            <img src={product.image} alt="sneaker" className="sneaker__img" />
-                            <span className="sneaker__name">{product.name}</span>
+                        <article key={ product.id } className="sneaker">
+                            <div className="sneaker__sale">Sale</div>
+                            <img src={ product.image } alt="sneaker" className="sneaker__img" />
+                            <span className="sneaker__name">{ product.name }</span>
                             <span className="sneaker__price">$143.99</span>
-                            <button className="button-light" id='sneaker__sale_a'>Add to card<i className="fa-solid fa-arrow-right button-icon"></i></button>
+                            <button className="button-light" id='sneaker__sale_a' onClick={() => addToCart(product)}>Add to card {product.id}<i className="fa-solid fa-arrow-right button-icon"></i></button>
                         </article>
                     ))
                 }

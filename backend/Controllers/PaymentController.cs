@@ -26,6 +26,7 @@ namespace backend.Controllers
 
 			try
 			{
+                StripeConfiguration.ApiKey = "sk_test_51O9bDBHgdnCMr3IWAL8EnR5R0AwTd3intcpN6Flc4PVUxBQKwBVGCzOHU0IAKjMXYiEKPDXD3rGVj24KqSxLxGnn00tXc5vZcQ";
 
                 var listItems = items.Select(item => new SessionLineItemOptions
                 {

@@ -18,3 +18,4 @@ export const Items = [
     {id: 1, quantity: 2, pricePerUnitInCents: 20000, productName: "Nike Jordan"}, // acrticle to buy
     {id: 2, quantity: 1, pricePerUnitInCents: 10000, productName: "Nike Mercurial"},
 ];
+

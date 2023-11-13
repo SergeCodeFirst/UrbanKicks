@@ -1,8 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
-import  featured1  from '../assets/images/featured1.png'
-import  featured2  from '../assets/images/featured2.png'
-import  featured3  from '../assets/images/featured3.png'
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ShoppingCartContext = createContext({});
@@ -24,7 +21,7 @@ export function ShoppingCartProvider ({ children }) {
     }
 
     const getCartItemsTotalPrice = cartItems.reduce((total, item) => {
-        return (item.quantity * item.price) + total
+        return (item.quantity * item.pricePerUnitInCents) + total
     } , 0)
 
     const cartQuantity = cartItems.reduce((quantity, item) => {
@@ -33,13 +30,19 @@ export function ShoppingCartProvider ({ children }) {
 
     function addToCart(item) {
         // Check if the item is already in the cart
-        const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
-    
+        const itemToAdd = {
+            id: item.id,
+            quantity: item.quantity,
+            pricePerUnitInCents: item.price * 100,
+            productName: item.name,
+            image: item.image
+        }
+        const existingItem = cartItems.find(cartItem => cartItem.id === itemToAdd.id);
         if (existingItem) {
             // If the item already exists, update its quantity
             setCartItems(prevCartItems => {
                 return prevCartItems.map(cartItem => {
-                    if (cartItem.id === item.id) {
+                    if (cartItem.id === itemToAdd.id) {
                         return { ...cartItem, quantity: cartItem.quantity + 1 };
                     } else {
                         return cartItem;
@@ -48,8 +51,12 @@ export function ShoppingCartProvider ({ children }) {
             });
         } else {
             // If the item is not in the cart, add it with quantity 1
-            setCartItems(prevCartItems => [...prevCartItems, { ...item, quantity: 1 }]);
+            setCartItems(prevCartItems => [...prevCartItems, { ...itemToAdd, quantity: 1 }]);
         }
+    }
+
+    function clearCart(){
+        setCartItems([])
     }
 
     function incrementCardQuantity(id) {
@@ -90,11 +97,6 @@ export function ShoppingCartProvider ({ children }) {
         })
     }
 
-    // function removeFromCard(id) {
-    //     setCartItems(currentItems => currentItems.filter(item => item.id !== id));
-    // }
-
-
     return(
         <ShoppingCartContext.Provider value={{ 
             getCartItems, 
@@ -103,6 +105,7 @@ export function ShoppingCartProvider ({ children }) {
             decrementCardQuantity, 
             removeFromCard,
             addToCart,
+            clearCart,
             cartItems,
             cartQuantity,
             getCartItemsTotalPrice 

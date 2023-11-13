@@ -1,9 +1,11 @@
+import './Navbar.css'
+import React from 'react';
+
 import { useState } from 'react';
 import { Link } from 'react-scroll';
-import './Navbar.css'
 
-// import featured3 from '../../assets/images/featured3.png'
-import { ProductInCard } from '../../stores/TempData';
+import axios from 'axios';
+
 import { formatCurenccy } from '../../utils/formatCurrency'
 // Cusom Hooks
 import { useShoppingCard } from '../../context/shoppingCartContext';
@@ -24,6 +26,19 @@ const Navbar = (props) => {
 
     const { getCartItems, cartQuantity, getCartItemsTotalPrice, getItemQuantity, incrementCardQuantity, decrementCardQuantity, removeFromCard } = useShoppingCard();
     const CartItems = getCartItems()
+
+    const checkout = (event) => {
+        event.preventDefault()        
+        axios.post("https://localhost:7193/testcheckout", CartItems)
+            .then(res => {
+                console.log({result: res});
+                window.location = res.data.url
+            })
+            .catch(err => {
+                console.log({errors: err});
+            })
+    }
+
     return (
         <header className='l-header' id="header">
             <nav className="nav bd-grid">
@@ -63,7 +78,7 @@ const Navbar = (props) => {
                                                     <img src={product.image} alt="featured3" className='items__img' />
                                                 </div>
                                                 <div className="card__item__info">
-                                                    <p className='card__item__title'> { product.name } ...<br /> <span className='card__item__price'> { formatCurenccy((product.price * getItemQuantity(product.id))) }</span> </p>
+                                                    <p className='card__item__title'> { product.productName } ...<br /> <span className='card__item__price'> { formatCurenccy((product.pricePerUnitInCents * getItemQuantity(product.id))) }</span> </p>
                                                     <div className="item__counter">
                                                         { getItemQuantity(product.id) === 1 ?
                                                         <i className="fa-solid fa-trash small_font" onClick={() => removeFromCard(product.id)}></i>
@@ -77,15 +92,12 @@ const Navbar = (props) => {
                                             </article>
                                         ))
                                     }
-
                                     <h4 style={{ textAlign:"end"}}><b>{  formatCurenccy(getCartItemsTotalPrice)}</b></h4>
-                                    <button>Checkout</button>
+                                    <button onClick={checkout}>Checkout</button>
                                 </div>
                         }
                     </div>
                 </div>
-
-
             </nav>
         </header>
     )
